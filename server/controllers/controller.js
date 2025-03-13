@@ -63,7 +63,7 @@ let adminLogin = async (req, res) => {
 
         console.log(result)
 
-        res.status(202).json({ message: "email and password matched !", token : genratedToken })
+        res.status(202).json({ message: "email and password matched !", token: genratedToken })
 
     } catch (err) {
         console.log(err)
@@ -71,4 +71,12 @@ let adminLogin = async (req, res) => {
     }
 }
 
-export { welcome, adminLogin }
+let getDashboard = (req, res) => {
+    console.log("this is get dashboard")
+
+    console.log("we got user after authAdmin : ",req.user)
+
+    res.status(202).json({ message: "welcome admin to the dashboard " })
+}
+
+export { welcome, adminLogin, getDashboard }
