@@ -7,6 +7,11 @@ let welcome = (req, res) => {
     console.log("welcome route called !")
     res.status(200).json({ message: "welcome !" })
 }
+let postHome = (req, res) => {
+    console.log("post home route called !")
+    console.log(req.body)
+    res.status(202).json({message: "form submitted successfully !"})
+}
 
 let adminLogin = async (req, res) => {
 
@@ -74,9 +79,9 @@ let adminLogin = async (req, res) => {
 let getDashboard = (req, res) => {
     console.log("this is get dashboard")
 
-    console.log("we got user after authAdmin : ",req.user)
+    console.log("we got user after authAdmin : ", req.user)
 
     res.status(202).json({ message: "welcome admin to the dashboard " })
 }
 
-export { welcome, adminLogin, getDashboard }
+export { welcome, adminLogin, getDashboard, postHome }
