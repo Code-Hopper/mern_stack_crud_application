@@ -9,7 +9,9 @@ let authAdmin = async (req, res, next) => {
     let token = req.headers.token
     try {
 
-        let decoded = jwt.verify(req.headers.token, process.env.JWT_SECRECT)
+        if (!token) { throw ("token not found") }
+
+        let decoded = jwt.verify(token, process.env.JWT_SECRECT)
 
         if (!decoded) {
             throw ("invalid token !")
@@ -19,8 +21,8 @@ let authAdmin = async (req, res, next) => {
 
         let checkUser = await adminModel.findOne({ email: decoded.email })
 
-        if(!checkUser){
-            throw("user not found !")
+        if (!checkUser) {
+            throw ("user not found !")
         }
 
         req.user = decoded.email
