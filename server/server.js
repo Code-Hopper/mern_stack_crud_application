@@ -7,17 +7,16 @@ dotenv.config({ path: "./config.env" })
 
 import router from "./routers/router.js"
 
+let corsOptions = {
+    origin: "*",
+    methods: "*"
+}
 
 let port = process.env.PORT || 3066
 
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended: true }))
-
-let corsOptions = {
-    origin: "*",
-    methods: "*"
-}
 
 app.use(cors(corsOptions))
 
