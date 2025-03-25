@@ -30,6 +30,7 @@ let authAdmin = async (req, res, next) => {
         next()
 
     } catch (err) {
+        console.log("not valid user !")
         res.status(400).json({ message: "Cannot access dashboard !", err })
     }
 }
