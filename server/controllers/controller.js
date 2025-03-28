@@ -10,7 +10,7 @@ let welcome = (req, res) => {
 let postHome = (req, res) => {
     console.log("post home route called !")
     console.log(req.body)
-    res.status(202).json({message: "form submitted successfully !"})
+    res.status(202).json({ message: "form submitted successfully !" })
 }
 
 let adminLogin = async (req, res) => {
@@ -84,4 +84,8 @@ let getDashboard = (req, res) => {
     res.status(202).json({ message: "welcome admin to the dashboard " })
 }
 
-export { welcome, adminLogin, getDashboard, postHome }
+let addEntry = (req, res) => {
+
+}
+
+export { welcome, adminLogin, getDashboard, postHome, addEntry }
